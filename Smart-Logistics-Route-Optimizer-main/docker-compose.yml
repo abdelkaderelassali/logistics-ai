@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./python_backend
+    container_name: smart_logistics_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./python_backend:/app
+    # Note: If you want ChromaDB to persist between restarts, the volume mount above handles it since it maps the local folder.
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: smart_logistics_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - WDS_SOCKET_PORT=0
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend

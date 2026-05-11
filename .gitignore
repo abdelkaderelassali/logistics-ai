@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+chroma_db/
+.ipynb_checkpoints/
+node_modules/
+dist/
+build/
+.vscode/
+.idea/
+*.log
+data/

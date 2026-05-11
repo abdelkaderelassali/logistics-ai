@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Logistics Workflow</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero card">
+            <p class="eyebrow">IA Distribuée & Systèmes Multi-Agents</p>
+            <h1>AI Logistics Workflow</h1>
+            <p class="hero-copy">
+                User Request → AI Agents → RAG Retrieval → Validation → Final Response
+            </p>
+        </section>
+
+        <section class="grid two-up">
+            <article class="card">
+                <div class="card-head">
+                    <h2>Delivery Request</h2>
+                    <p>Enter one logistics request for the workflow demo.</p>
+                </div>
+                <form id="request-form" class="form">
+                    <label for="request-input">Request</label>
+                    <textarea
+                        id="request-input"
+                        name="request"
+                        rows="6"
+                        maxlength="500"
+                        placeholder="Transport 12 tons of medical equipment from Casablanca to Tangier before 6 AM. Avoid toll roads."
+                        required
+                    ></textarea>
+                    <div class="char-row"><span id="char-count">0</span>/500</div>
+                    <button id="submit-btn" class="btn-primary" type="submit">Run AI Workflow</button>
+                </form>
+            </article>
+
+            <article class="card">
+                <div class="card-head">
+                    <h2>Workflow</h2>
+                    <p>Simple 4-agent orchestration.</p>
+                </div>
+                <div id="workflow-timeline" class="timeline"></div>
+            </article>
+        </section>
+
+        <section class="card">
+            <div class="card-head">
+                <h2>Results</h2>
+                <p>Each panel corresponds to one stage of the workflow.</p>
+            </div>
+            <div id="results-container" class="results-grid">
+                <article class="result-card"><h3>Search</h3><pre>Waiting for input...</pre></article>
+                <article class="result-card"><h3>Analysis</h3><pre>Waiting for input...</pre></article>
+                <article class="result-card"><h3>Validation</h3><pre>Waiting for input...</pre></article>
+                <article class="result-card final"><h3>Final Response</h3><pre>Waiting for input...</pre></article>
+            </div>
+        </section>
+
+        <section class="card note-card">
+            <div class="note-row">
+                <span>RAG Context</span>
+                <span id="status-badge">Ready</span>
+            </div>
+            <div id="meta-output" class="meta-output">The system will retrieve private logistics knowledge and explain the plan clearly.</div>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
